@@ -35,15 +35,15 @@ public class RoomService {
 	public Collection<Room> getRoomByRateAndType(final double rate, final String type){
 	
 		//Returns a new collection of rooms with a rate below the provided rate and that match the provided type
-		Collection<Room> roomsRateBelowAndMatchType = new HashSet<>();
-		for (Room room: inventory){
-			if (room.getType().equals(type)  && room.getRate()<=rate)
-			{
-				roomsRateBelowAndMatchType.add(room);
-			}
-		}
-		return roomsRateBelowAndMatchType;
-		
+//		Collection<Room> roomsRateBelowAndMatchType = new HashSet<>();
+//		for (Room room: inventory){
+//			if (room.getType().equals(type)  && room.getRate()<=rate)
+//			{
+//				roomsRateBelowAndMatchType.add(room);
+//			}
+//		}
+//		return roomsRateBelowAndMatchType;
+		return inventory.stream().filter(r->r.getRate()<rate).filter(r->r.getType().equals(type)).collect(Collectors.toList());
 	}
 	
 	public boolean hasRoom(Room room) {
