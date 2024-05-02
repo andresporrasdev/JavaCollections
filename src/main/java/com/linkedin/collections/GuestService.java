@@ -54,10 +54,8 @@ public class GuestService {
 		if (checkinList.contains(guest1) && checkinList.contains(guest2)){
 			int position1 = checkinList.indexOf(guest1);
 			int position2 = checkinList.indexOf(guest2);
-			checkinList.remove(guest1);
-			checkinList.add(position1,guest2);
-			checkinList.remove(position2);
-			checkinList.add(position2,guest1);
+			checkinList.set(position1,guest2);
+			checkinList.set(position2,guest1);
 		}
 
 
